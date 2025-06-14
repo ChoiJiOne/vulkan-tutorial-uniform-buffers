@@ -18,10 +18,17 @@ find_package(Vulkan REQUIRED)
 
 add_subdirectory(ThirdParty)
 
-set(DRAWING_A_TRIANGLE "1.Drawing a triangle")
-set(VERTEX_BUFFERS "2.Vertex buffers")
-set(UNIFORM_BUFFERS "3.Uniform buffers")
+set(DESCRIPTOR_LAYOUT_AND_BUFFER_PATH "3.1.Descriptor layout and buffer")
+set(DESCRIPTOR_POOL_AND_SETS_PATH "3.2.Descriptor pool and sets")
 
-add_subdirectory(${DRAWING_A_TRIANGLE})
-add_subdirectory(${VERTEX_BUFFERS})
-add_subdirectory(${UNIFORM_BUFFERS})
+set(DESCRIPTOR_LAYOUT_AND_BUFFER "3.1.DescriptorLayoutAndBuffer")
+set(DESCRIPTOR_POOL_AND_SETS "3.2.DescriptorPoolAndSets")
+
+add_subdirectory(${DESCRIPTOR_LAYOUT_AND_BUFFER_PATH})
+add_subdirectory(${DESCRIPTOR_POOL_AND_SETS_PATH})
+
+set_target_properties(
+    ${DESCRIPTOR_LAYOUT_AND_BUFFER}
+    ${DESCRIPTOR_POOL_AND_SETS}
+    PROPERTIES FOLDER "3. Uniform buffers"
+)
